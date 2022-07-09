@@ -17,16 +17,67 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            ArrayList<String> Definitions = new ArrayList<>();
-            Definitions.add("test1");
-            Definitions.add("test2");
-            Definitions.add("test3");
-            System.out.println(Definitions.contains("test4"));
         // TODO code application logic here
-//        SlangWordList slangwordlist = new SlangWordList();
-//        System.out.println("Initial Mappings are: 1");
-//        slangwordlist.ImportSlangWordList("slang.txt");
-////        slangwordlist.XuatListHocSinh();
-//        slangwordlist.SearchValue("Initial");
+        SlangWordList slangwordlist = new SlangWordList();
+        HistorySearchList historySearchList = new HistorySearchList();
+        int flag = 0;
+        do{
+            System.out.println("============ FEATURE ============");
+            System.out.println("[1] : Show slang words.");
+            System.out.println("[2] : Import file slang words.");
+            System.out.println("[3] : Search slang word.");
+            System.out.println("[4] : Search definition.");
+            System.out.println("[5] : History search.");
+            System.out.println("[6] : Add slang word.");
+            System.out.println("[7] : Edit slang word.");
+            System.out.println("[8] : Delete slang word.");
+            System.out.println("[9] : Reset list slang words.");
+            System.out.println("[10]: Random slang word.");
+            System.out.println("[11]: Qiz slang word.");
+            System.out.println("[12]: Qiz definition.");
+            System.out.println("[13]: Exit");
+            System.out.println("=================================");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Choose feature: ");
+            String i = scanner.nextLine();
+            switch(i){
+                case "1":
+                    slangwordlist.ShowSlangWordList();
+                    continue;
+                case "2":
+                    slangwordlist.ImportSlangWordList("slang.txt");
+                    continue;
+                case "3":
+                    slangwordlist.SearchKey();
+                    continue;
+                case "4":
+                    slangwordlist.SearchValue();
+                    continue;
+                case "5":
+                    historySearchList.ShowHistorySearchList();
+                    continue;
+                case "6":
+                    continue;
+                case "7":
+                    continue;
+                case "8":
+                    continue;
+                case "9":
+                    continue;
+                case "10":
+                    continue;
+                case "11":
+                    continue;
+                case "12":
+                    continue;
+                case "13":
+                    flag = 1;
+                    break;
+                default:
+                    flag = 1;
+                    break;
+            }
+
+        }while(flag != 1);
     }
 }

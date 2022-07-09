@@ -13,7 +13,6 @@ import java.util.*;
 public class SlangWord {
     private String SlangWord;
     private String Definitions;
-    
     public SlangWord(){
         SlangWord = "";
         Definitions = "";
@@ -25,7 +24,7 @@ public class SlangWord {
     }
     
     public boolean SearchDefinition(String searchText){
-        if(Definitions.contains(searchText)){
+        if(Definitions.matches(searchText)){
             return true;
         }
         return false;
@@ -45,7 +44,32 @@ public class SlangWord {
         return true;
     }
     public boolean AddDefinition(String definitions){
+        
         Definitions += definitions;
         return true;
+    }
+    
+    public String getDefinintions(){
+        return Definitions;
+    }
+    
+    public void SetDefinintion(String definitions){
+        Definitions = definitions;
+    }
+    
+    public String getSlangWord(){
+        return SlangWord;
+    }
+    
+    public void SetSlangWord(String slangword){
+        SlangWord = slangword;
+    }
+    
+    public void Create(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Slang Word: ");
+        SlangWord = scanner.nextLine();
+        System.out.print("Enter definitions: ");
+        Definitions = scanner.nextLine();
     }
 }
