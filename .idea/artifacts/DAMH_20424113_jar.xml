@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DAMH_20424113:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DAMH_20424113_jar</output-path>
+    <root id="archive" name="DAMH_20424113.jar">
+      <element id="module-output" name="DAMH_20424113" />
+    </root>
+  </artifact>
+</component>
