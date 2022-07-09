@@ -19,6 +19,7 @@ public class SlangWordList implements Serializable{
             ObjectInputStream iis = new ObjectInputStream(fis);
             slangWordList = (TreeMap<String, SlangWord>) iis.readObject();
         }catch(Exception e){
+            System.out.println("Slang Word List Empty!");
         }
     }
     
@@ -28,16 +29,18 @@ public class SlangWordList implements Serializable{
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(slangWordList);
         } catch (Exception e) {
+            System.out.println("Save Data Error!");
         }
     }
+    
     public void ImportSlangWordList(){
-        String line = "";  
+        String line;
         String splitBy = "`";  
         try   
         {  
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter absolute path file: ");
-            String file = "";
+            String file;
             file = scanner.nextLine();
             BufferedReader br = new BufferedReader(new FileReader(file));  
             while ((line = br.readLine()) != null)
@@ -49,31 +52,36 @@ public class SlangWordList implements Serializable{
                     slangWordList.put(employee[0],slw);
                 }
             }
+            System.out.println("Import slang words success!");
         }catch (IOException e){
             System.out.println("File doesn't exits!");
         }
         SaveData();
     }
+    
     private void ShowHeader(){
         System.out.println("---------------------------------------------------------------------------------------------------");
 	System.out.printf(format, "Slang word", "Defineitions");
 	System.out.println();
         System.out.println("---------------------------------------------------------------------------------------------------");
     }
+    
     private void ShowBody(Map.Entry<String, SlangWord> entry){
         System.out.format(format, entry.getKey(), entry.getValue().getDefinintions());
         System.out.println();
     }
+    
     private void ShowFooter(){
         System.out.println("---------------------------------------------------------------------------------------------------");
         System.out.println();
     }
+    
     public void ShowSlangWordList(){
-        System.out.println("============ Show Slang Words ============");
+        System.out.println("=========== Show Slang Words ===========");
         ShowHeader();
-        Collection c = slangWordList.values();
+        Collection<SlangWord> c = slangWordList.values();
         Iterator<Map.Entry<String, SlangWord>> itr = slangWordList.entrySet().iterator();
-        Map.Entry<String, SlangWord> entry = null;
+        Map.Entry<String, SlangWord> entry;
         if(slangWordList.isEmpty()){
             System.out.println("No data to display.");
         }else{
@@ -87,7 +95,7 @@ public class SlangWordList implements Serializable{
     
     public void SearchKey(HistorySearchList hsl){
         System.out.println("============ Search Slang Word ============");
-        String searchText = "";
+        String searchText;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter slang word you wanna search: ");
         while(true){
@@ -96,9 +104,8 @@ public class SlangWordList implements Serializable{
                 break;
             }
             System.out.print("Please enter slang word! Re-Enter: ");
-            continue;
         }
-        Collection c = slangWordList.values();
+        Collection<SlangWord> c = slangWordList.values();
         Iterator<Map.Entry<String, SlangWord>> itr = slangWordList.entrySet().iterator();
         Map.Entry<String, SlangWord> entry = null;
         //iterate through TreeMap values iterator
@@ -118,6 +125,7 @@ public class SlangWordList implements Serializable{
         }
         ShowFooter();
     }
+    
     public void SearchValue(HistorySearchList hsl){
         System.out.println("============ Search Definition ============");
         String searchText = "";
@@ -131,7 +139,7 @@ public class SlangWordList implements Serializable{
             System.out.print("Please enter definitions! Re-Enter: ");
             continue;
         }
-        Collection c = slangWordList.values();
+        Collection<SlangWord> c = slangWordList.values();
         Iterator<Map.Entry<String, SlangWord>> itr = slangWordList.entrySet().iterator();
         Map.Entry<String, SlangWord> entry = null;
         hsl.AddHistorySearch(searchText);
@@ -272,7 +280,7 @@ public class SlangWordList implements Serializable{
         }else{
             System.out.println("What is slang word for definition `"+ slangwords.get(id_key).getDefinintions()+"`?");
         }
-        ArrayList<String> stt = new ArrayList();
+        ArrayList<String> stt = new ArrayList<>();
         String[] strs = {"A", "B", "C", "D"};
         stt.addAll(Arrays.asList(strs));
         for (int i = 0; i < 4; i++) {
@@ -288,6 +296,7 @@ public class SlangWordList implements Serializable{
         while(true){
             try {
                 str = scanner.nextLine();
+                str = str.toUpperCase();
                 if(stt.contains(str)){
                     break;
                 }
