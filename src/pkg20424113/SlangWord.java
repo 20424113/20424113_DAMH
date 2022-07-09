@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package pkg20424113;
-import java.io.*;
-import java.util.*;
+
+import java.io.Serializable;
+import java.util.Scanner;
 /**
  *
  * @author nttthoi
  */
-public class SlangWord {
+public class SlangWord implements Serializable{
     private String SlangWord;
     private String Definitions;
     public SlangWord(){
@@ -71,5 +72,23 @@ public class SlangWord {
         SlangWord = scanner.nextLine();
         System.out.print("Enter definitions: ");
         Definitions = scanner.nextLine();
+    }
+    
+    public void Edit(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Slang Word ("+SlangWord+"): ");
+        SlangWord = scanner.nextLine();
+        System.out.print("Enter definitions ("+Definitions+"): ");
+        Definitions = scanner.nextLine();
+    }
+    public void EditDefinition(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter definitions ("+Definitions+"): ");
+        Definitions = scanner.nextLine();
+    }
+    public void EditSlangWord(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Slang Word ("+SlangWord+"): ");
+        SlangWord = scanner.nextLine();
     }
 }

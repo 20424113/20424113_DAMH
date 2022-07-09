@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package pkg20424113;
-import java.util.*;
-import java.io.*;
+
+import java.util.Scanner;
 
 /**
  *
@@ -22,7 +22,8 @@ public class Main {
         HistorySearchList historySearchList = new HistorySearchList();
         int flag = 0;
         do{
-            System.out.println("============ FEATURE ============");
+            System.out.println("===========================================");
+            System.out.println("================ FEATURE ==================");
             System.out.println("[1] : Show slang words.");
             System.out.println("[2] : Import file slang words.");
             System.out.println("[3] : Search slang word.");
@@ -36,7 +37,7 @@ public class Main {
             System.out.println("[11]: Qiz slang word.");
             System.out.println("[12]: Qiz definition.");
             System.out.println("[13]: Exit");
-            System.out.println("=================================");
+            System.out.println("===========================================");
             Scanner scanner = new Scanner(System.in);
             System.out.print("Choose feature: ");
             String i = scanner.nextLine();
@@ -45,30 +46,37 @@ public class Main {
                     slangwordlist.ShowSlangWordList();
                     continue;
                 case "2":
-                    slangwordlist.ImportSlangWordList("slang.txt");
+                    slangwordlist.ImportSlangWordList();
                     continue;
                 case "3":
-                    slangwordlist.SearchKey();
+                    slangwordlist.SearchKey(historySearchList);
                     continue;
                 case "4":
-                    slangwordlist.SearchValue();
+                    slangwordlist.SearchValue(historySearchList);
                     continue;
                 case "5":
                     historySearchList.ShowHistorySearchList();
                     continue;
                 case "6":
+                    slangwordlist.AddSlangWord();
                     continue;
                 case "7":
+                    slangwordlist.EditSlangWord();
                     continue;
                 case "8":
+                    slangwordlist.DeleteSlangWord();
                     continue;
                 case "9":
+                    slangwordlist.ResetSlangWords();
                     continue;
                 case "10":
+                    slangwordlist.RandomSlangWord();
                     continue;
                 case "11":
+                    slangwordlist.QizSlangWord(0);
                     continue;
                 case "12":
+                    slangwordlist.QizSlangWord(1);
                     continue;
                 case "13":
                     flag = 1;

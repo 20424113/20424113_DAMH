@@ -5,13 +5,14 @@
  */
 package pkg20424113;
 
-import java.time.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 /**
  *
  * @author nttthoi
  */
-public class HistorySearch {
+public class HistorySearch implements Serializable{
     private String SearchText;
     private LocalDateTime DateSearch;
     
