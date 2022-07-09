@@ -19,6 +19,7 @@ public class SlangWordList implements Serializable{
             ObjectInputStream iis = new ObjectInputStream(fis);
             slangWordList = (TreeMap<String, SlangWord>) iis.readObject();
         }catch(Exception e){
+            System.out.println("Slang Word List Empty!");
         }
     }
     
@@ -31,13 +32,13 @@ public class SlangWordList implements Serializable{
         }
     }
     public void ImportSlangWordList(){
-        String line = "";  
+        String line;
         String splitBy = "`";  
         try   
         {  
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter absolute path file: ");
-            String file = "";
+            String file;
             file = scanner.nextLine();
             BufferedReader br = new BufferedReader(new FileReader(file));  
             while ((line = br.readLine()) != null)
@@ -49,6 +50,7 @@ public class SlangWordList implements Serializable{
                     slangWordList.put(employee[0],slw);
                 }
             }
+            System.out.println("Import slang words success!");
         }catch (IOException e){
             System.out.println("File doesn't exits!");
         }
@@ -71,9 +73,9 @@ public class SlangWordList implements Serializable{
     public void ShowSlangWordList(){
         System.out.println("============ Show Slang Words ============");
         ShowHeader();
-        Collection c = slangWordList.values();
+        Collection<SlangWord> c = slangWordList.values();
         Iterator<Map.Entry<String, SlangWord>> itr = slangWordList.entrySet().iterator();
-        Map.Entry<String, SlangWord> entry = null;
+        Map.Entry<String, SlangWord> entry;
         if(slangWordList.isEmpty()){
             System.out.println("No data to display.");
         }else{
@@ -98,7 +100,7 @@ public class SlangWordList implements Serializable{
             System.out.print("Please enter slang word! Re-Enter: ");
             continue;
         }
-        Collection c = slangWordList.values();
+        Collection<SlangWord> c = slangWordList.values();
         Iterator<Map.Entry<String, SlangWord>> itr = slangWordList.entrySet().iterator();
         Map.Entry<String, SlangWord> entry = null;
         //iterate through TreeMap values iterator
