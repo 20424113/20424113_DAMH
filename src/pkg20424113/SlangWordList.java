@@ -4,14 +4,8 @@
  * and open the template in the editor.
  */
 package pkg20424113;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.*;
+import java.util.*;
 /**
  *
  * @author nttthoi
